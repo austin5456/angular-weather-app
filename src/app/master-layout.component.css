@@ -9,6 +9,21 @@
     padding-top: 0;
     padding-bottom: 0;
 }
+
+/*possible global styles below*/
+
+.wrapperstyle {
+    box-shadow: -3px 1px 0 0 rgba(16, 41, 67, 1);
+    border-radius: 12px;
+    background-color: rgb(31, 131, 249);
+    background-image: linear-gradient(rgb(10, 87, 165) 1%, rgb(31, 131, 249) 18%, rgb(10, 87, 165) 54%, rgb(31, 131, 249) 82%, rgb(10, 87, 165));
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    padding-right: 0;
+    padding-left: 0;
+}
+.weather_icon {
+    background: url(../assets/weather_icons_sprite.png);
+}
 .bottom_bar:after {
     content: "";
     border-top: 2px solid rgba(0, 0, 0, 0.5);
@@ -16,6 +31,12 @@
     display: block;
     margin: 12px auto 0 auto;
     border-radius: 3px;
+}
+.zone_title {
+    text-shadow: black 1px 1px 2px;
+    text-align: center;
+    margin-bottom: 16px;
+    padding-top: 15px;
 }
 .global_wrap {
     padding: 0 4%;
@@ -269,55 +290,6 @@ header h1 {
     background: linear-gradient(rgb(55, 141, 229) 5%, rgb(121, 187, 255) 100%) rgb(55, 141, 229);
     cursor: pointer;
 }
-.current_conditions {
-    border-radius: 10px;
-    text-align: center;
-    font-size: 2em;
-}
-
-/*#region Time Box*/
-
-.time_box {
-    box-shadow: -3px 1px 0 0 rgba(16, 41, 67, 1);
-    border-radius: 12px;
-    padding-right: 0;
-    padding-left: 0;
-    background-color: rgb(31, 131, 249);
-    background-image: linear-gradient(rgb(10, 87, 165) 1%, rgb(31, 131, 249) 18%, rgb(10, 87, 165) 54%, rgb(31, 131, 249) 82%, rgb(10, 87, 165));
-    border: 1px solid rgba(0, 0, 0, 0.6);
-}
-.time_box .weather_icon {
-    height: 116px;
-    width: 116px;
-    margin: 0 auto;
-}
-.time_box p {
-    display: inline-block;
-}
-.zone_title {
-    text-shadow: black 1px 1px 2px;
-    text-align: center;
-    margin-bottom: 16px;
-    padding-top: 15px;
-}
-.inner_time {
-    text-shadow: black 2px 2px 2px;
-    font-family: "Oswald", "sans-serif";
-    font-size: 3.2em;
-    text-align: center;
-}
-.seconds_holder {
-    display: inline-block;
-}
-.inner_time .seconds, .inner_time .ampm {
-    display: block;
-    font-size: 1.6rem;
-}
-.inner_time .ampm {
-    margin-bottom: -12px;
-}
-/*#endregion*/
-
 
 /*#region hourly_forecast_small*/
 
@@ -340,6 +312,7 @@ header h1 {
     top: -4px;
     left: 10px;
 }
+/*possible global style */
 .weather_icon_small {
     background: url(../assets/weather_icons_sprite.png);
     background-size: 500%;
@@ -430,6 +403,7 @@ header h1 {
     left: 20px;
     margin-bottom: 0;
 }
+/*  gloval style below*/
 .weather_icon {
     background: url(../assets/weather_icons_sprite.png);
     background-size: 500%;
@@ -528,9 +502,6 @@ header h1 {
         margin-left: 8px;
         margin-right: 8px;
     }
-    .current_conditions {
-    font-size: 1.65em;
-}
     .hourly_forecast_container {
         margin-top: 0;
         margin-left: 3.529411%;
@@ -649,10 +620,6 @@ header h1 {
         color: rgba(255, 255, 255, 0.6);
     }
     /*#endregion*/
-
-    .current_conditions {
-    font-size: 2em;
-}
 
     /*#region weekly forecast boxes*/
     .weather_icon {

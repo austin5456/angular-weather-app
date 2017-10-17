@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { MasterLayoutComponent } from "./master-layout.component";
+import { CurrentConditionsComponent } from "./current-conditions.component";
 
 @Component({
   selector: 'app-root',

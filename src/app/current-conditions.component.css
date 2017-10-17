@@ -1,0 +1,78 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+
+
+.current_conditions {
+    text-shadow: black 2px 1px 1px;
+}
+.time_box {
+    text-shadow: black 2px 1px 1px;
+}
+.weather_icon {
+    background: url(../assets/weather_icons_sprite.png);
+    height: 116px;
+    width: 116px;
+    margin: 0 auto;
+}
+p {
+    display: inline-block;
+}
+.zone_title {
+    text-shadow: black 1px 1px 2px;
+    text-align: center;
+    margin-bottom: 16px;
+    padding-top: 15px;
+}
+.text_enlarge {
+    text-shadow: black 2px 2px 2px;
+    font-family: "Oswald", "sans-serif";
+    font-size: 3.2em;
+    text-align: center;
+}
+.seconds_holder {
+    display: inline-block;
+}
+.seconds, .ampm {
+    display: block;
+    font-size: 1.6rem;
+}
+.ampm {
+    margin-bottom: -12px;
+}
+.weather_conditions {
+    border-radius: 10px;
+    text-align: center;
+    font-size: 2em;
+}
+/*possible global styles below*/
+.bottom_bar:after {
+    content: "";
+    border-top: 2px solid rgba(0, 0, 0, 0.5);
+    width: 90%;
+    display: block;
+    margin: 12px auto 0 auto;
+    border-radius: 3px;
+}
+@media (min-width: 576px) {
+
+    .weather_conditions {
+        font-size: 1.65em;
+    }
+    .time_box {
+        margin: 44px 0;
+    }
+    .temp_box {
+        margin: 25px 0;
+    }
+}
+
+@media (min-width: 1000px) {
+    .weather_conditions {
+        font-size: 2em;
+    }
+    .time_box {
+        margin: 0;
+    }
+    .temp_box {
+        margin: 0;
+    }
+}
