@@ -20,7 +20,7 @@
     border: 1px solid rgba(0, 0, 0, 0.6);
     padding-right: 0;
     padding-left: 0;
-}
+} 
 .weather_icon {
     background: url(../assets/weather_icons_sprite.png);
 }
@@ -291,93 +291,6 @@ header h1 {
     cursor: pointer;
 }
 
-/*#region hourly_forecast_small*/
-
-.hourly_forecast_container {
-    box-shadow: -3px 1px 0 0 rgba(16, 41, 67, 1);
-    background-color: rgb(31, 131, 249);
-    border: 1px solid rgba(0, 0, 0, 0.6);
-    border-radius: 12px;
-    margin-top: 3.529411%;
-    background-image: linear-gradient(rgb(10, 87, 165) 1%, rgb(31, 131, 249) 18%, rgb(10, 87, 165) 54%, rgb(31, 131, 249) 82%, rgb(10, 87, 165));
-}
-.hourly_forecast {
-    height: 522px;
-    position: relative;
-    width: 236px;
-    margin: 0 auto;
-}
-.hour_img_holder {
-    position: relative;
-    top: -4px;
-    left: 10px;
-}
-/*possible global style */
-.weather_icon_small {
-    background: url(../assets/weather_icons_sprite.png);
-    background-size: 500%;
-    position: relative;
-    left: 180px;
-    height: 58px;
-    width: 58px;
-}
-.hourly_temp_holder {
-    display: block;
-    height: 58px;
-}
-.hourly_temp_wrap {
-    left: 160px;
-    position: absolute;
-    top: 12px;
-}
-.outer_bars {
-    position: absolute;
-    top: 24px;
-    left: 140px;
-    height: 89%;
-    width: 12px;
-    border-top: 1px solid rgb(0, 0, 0);
-    border-bottom: 1px solid rgb(0, 0, 0);
-}
-.horizontal_bar {
-    border-right: 1px solid rgb(0, 0, 0);
-    position: relative;
-    right: 5px;
-    height: 100%;
-}
-.inner_bars {
-    position: relative;
-    height: 12.5%;
-    width: 8px;
-    left: 7px;
-    border-bottom: 1px solid rgb(0, 0, 0);
-}
-.hourly_time_holder {
-    height: 110%;
-    position: absolute;
-    top: 12px;
-    left: 90px;
-}
-.hourly_time_span {
-    display: block;
-    height: 20%;
-}
-.hourly_day_holder {
-    position: absolute;
-    top: 0;
-}
-.day_left {
-    height: 480px;
-    display: block;
-    color: rgba(255, 255, 255, 0.6);
-}
-.day_right {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-/*#endregion*/
-
-
 /*#region weekly forecast boxes*/
 
 .weekly_forecast {
@@ -502,11 +415,6 @@ header h1 {
         margin-left: 8px;
         margin-right: 8px;
     }
-    .hourly_forecast_container {
-        margin-top: 0;
-        margin-left: 3.529411%;
-        height: 100%;
-    }
     .weekly_forecast {
         width: 512px;
         margin: 2.35525% auto 0 auto;
@@ -527,99 +435,6 @@ header h1 {
     header {
         width: 36%;
     }
-    /*#region hourly_forecast*/
-    .hourly_forecast {
-        width: 522px;
-        margin: 86px auto 0 auto;
-        height: auto;
-    }
-    .hour_img_holder {
-        position: relative;
-        top: -30px;
-        left: 0;
-    }
-    .weather_icon_small {
-        position: relative;
-        background: url(../assets/weather_icons_sprite.png);
-        background-size: 500%;
-        height: 58px;
-        width: 58px;
-        margin: 0 auto;
-        float: left;
-        left: 0;
-    }
-    .hourly_temp_holder {
-        display: block;
-        width: 58px;
-        height: auto;
-        text-align: center;
-        float: left;
-    }
-    .hourly_temp_wrap {
-        position: static;
-    }
-    .outer_bars {
-        position: static;
-        width: 89%;
-        margin-left: 5.25%;
-        height: 12px;
-        clear: both;
-        border-left: 1px solid rgb(0, 0, 0);
-        border-right: 1px solid rgb(0, 0, 0);
-        border-top: none;
-        border-bottom: none;
-    }
-    .horizontal_bar {
-        width: 100%;
-        position: relative;
-        top: 5px;
-        border-bottom: 1px solid rgb(0, 0, 0);
-        border-right: none;
-        right: 0;
-        height: auto;
-    }
-    .inner_bars {
-        position: relative;
-        height: 8px;
-        top: -4px;
-        width: 12.5%;
-        border-right: 1px solid rgb(0, 0, 0);
-        float: left;
-        left: 0;
-        border-bottom: none;
-    }
-    .hourly_time_holder {
-        position: static;
-        width: 112%;
-        margin-left: -5.25%;
-        height: 12px;
-    }
-    .hourly_time_span {
-        display: block;
-        width: 20%;
-        text-align: center;
-        float: left;
-        height: auto;
-    }
-    .hourly_day_holder {
-        position: static;
-        margin-top: 2px;
-        width: 104%;
-    }
-    .day_left {
-        height: auto;
-        display: inline;
-        font-size: .75em;
-        float: left;
-        color: rgba(255, 255, 255, 0.6);
-    }
-    .day_right {
-        margin-right: 20px;
-        font-size: .75em;
-        float: right;
-        color: rgba(255, 255, 255, 0.6);
-    }
-    /*#endregion*/
 
     /*#region weekly forecast boxes*/
     .weather_icon {
