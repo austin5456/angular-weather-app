@@ -1,5 +1,7 @@
 
-
+.conditions_box {
+    /*un-used*/
+}
 .bottom_bar:after {
     content: "";
     border-top: 2px solid rgba(0, 0, 0, 0.5);
@@ -8,7 +10,6 @@
     margin: 12px auto 0 auto;
     border-radius: 3px;
 }
-
 .weekly_forecast {
     margin-top: 3.529411%;
     box-shadow: -3px 1px 0 0 rgb(16, 41, 67);
@@ -19,17 +20,20 @@
 .weekly_forecast .bottom_bar:after {
     display: none;
 }
-.wk_forecast_day {
+.wk_forecast_unit {
     height: 86px;
     border: 1px solid rgb(15, 64, 121);
     position: relative;
     background-image: linear-gradient(to left, rgb(10, 87, 165) 1%, rgb(31, 131, 249) 18%, rgb(57, 187, 237) 54%, rgb(31, 131, 249) 82%, rgb(10, 87, 165) 99%);
 }
-.weekday {
+.weekday_box {
     position: relative;
     font-size: 1.2em;
     top: 26px;
     left: 20px;
+    margin-bottom: 0;
+}
+.weekday_box p {
     margin-bottom: 0;
 }
 /*  gloval style below*/
@@ -45,21 +49,20 @@
     text-align: center;
     top: -14px;
 }
-.conditions_box {
+.day_conditions {
     display: none;
-    margin: 0;
 }
-.wk_temps_small {
+.temperature_box {
     text-align: center;
     padding-right: 20px;
     position: absolute;
     right: 0;
     top: 9px;
 }
-.wk_forecast_temp_high {
+.temp_high {
     font-size: 1.1em;
 }
-.wk_forecast_temp_low {
+.temp_low {
     font-size: 1.05em;
 }
 
@@ -68,13 +71,20 @@
         width: 512px;
         margin: 2.35525% auto 0 auto;
     }
+    .day_conditions {
+        display: block;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        bottom: 10px;
+    }
+    .weather_icon_wrap {
+        top: -25px;
+    }
 }
 @media (min-width: 1000px) {
-    header {
-        width: 36%;
-    }
 
-    /*#region weekly forecast boxes*/
     .weather_icon {
         height: 116px;
         width: 116px;
@@ -94,11 +104,11 @@
         margin: 0;
         padding-top: 12px;
     }
-    .weekday {
+    .weekday_box {
         position: static;
         font-size: 1.1em;
     }
-    .wk_forecast_day {
+    .wk_forecast_unit {
         border: none;
         box-shadow: -3px 1px 0 0 rgb(16, 41, 67);
         height: 322px;
@@ -112,10 +122,11 @@
         background-image: linear-gradient(rgb(10, 87, 165) 1%, rgb(31, 131, 249) 18%, rgb(57, 187, 237) 54%, rgb(31, 131, 249) 82%, rgb(10, 87, 165) 99%);
         border-radius: 8px;
     }
-    div.weekly_forecast div.wk_forecast_day:nth-child(1) {
+    div.weekly_forecast div.wk_forecast_unit:nth-child(1) {
         margin-left: 0;
     }
-    .conditions_box {
+    .day_conditions {
+        position: static;
         font-size: 1.05em;
         display: block;
         height: 60px;
@@ -123,9 +134,8 @@
     .weather_icon_wrap {
         position: static;
     }
-    .wk_temps_small {
+    .temperature_box {
         padding-right: 0;
         position: static;
     }
-    /*#endregion*/
 }
