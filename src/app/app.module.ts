@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { MasterLayoutComponent } from "./master-layout.component";
 import { CurrentConditionsComponent } from "./current-conditions.component";
 import { HourlyForecastComponent } from "./hourly-forecast.component";
+import { WeeklyForecastComponent } from "./weekly-forecast.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     MasterLayoutComponent,
     CurrentConditionsComponent,
-    HourlyForecastComponent
+    HourlyForecastComponent,
+    WeeklyForecastComponent
   ],
   imports: [
     BrowserModule
