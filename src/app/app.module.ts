@@ -6,6 +6,7 @@ import { MasterLayoutComponent } from "./master-layout.component";
 import { CurrentConditionsComponent } from "./current-conditions.component";
 import { HourlyForecastComponent } from "./hourly-forecast.component";
 import { WeeklyForecastComponent } from "./weekly-forecast.component";
+import { LoaderComponent } from "./loader.component";
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { WeeklyForecastComponent } from "./weekly-forecast.component";
     MasterLayoutComponent,
     CurrentConditionsComponent,
     HourlyForecastComponent,
-    WeeklyForecastComponent
+    WeeklyForecastComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule

@@ -36,7 +36,6 @@
 .weekday_box p {
     margin-bottom: 0;
 }
-/*  gloval style below*/
 .weather_icon {
     background: url(../assets/weather_icons_sprite.png);
     background-size: 500%;
