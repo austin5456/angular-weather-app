@@ -1,4 +1,4 @@
-<!--<loader></loader>-->
+
 <div class="global_wrap day_sky">
     <div class="sun_container">
       <div class="sun" id="sun_moon"></div>
@@ -6,21 +6,13 @@
     <div class="main">
       <header>
         <div class="title">
-          <h1>On The Fly Weather</h1><!--<img src="imgs/airplane.png" class="airplane">-->
+          <h1>On The Fly Weather</h1>
         </div>
       </header>
-      <div class="location_holder">
-        <h2><span id="city">Fort Worth</span>, <span id="state">Texas</span></h2>
-      </div>
-      <div class="zip_container">
-        <p>Not your location? Enter your Zip Code&nbsp;here:</p><input id="zip_input" maxlength="5" placeholder="76148" type="text">
-        <div class="my_button" id="zip_button">
-          Find
-        </div>
-      </div>
+     <location></location>
       <div class="container-fluid">
         <div class="row">
-          <current-conditions class="col-sm-4 wrapperstyle"></current-conditions>
+          <current-conditions class="col-sm-4"></current-conditions>
           <hourly-forecast class="col-sm-8"></hourly-forecast>
         </div>
       </div>
