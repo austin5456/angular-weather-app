@@ -183,6 +183,7 @@
         position: static;
         margin-top: 2px;
         width: 104%;
+        margin-bottom: 188px; /*for older browser div height*/
     }
     .day_left {
         height: auto;
