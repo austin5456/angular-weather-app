@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Inject } from "@angular/core";
 import { TimeService } from "./time.service";
 
 @Component({
@@ -9,7 +9,7 @@ import { TimeService } from "./time.service";
 })
 export class ClockComponent implements OnInit{
 
-	constructor(private timeService: TimeService){}
+	constructor(@Inject(TimeService) private timeService){}
 
 	ngOnInit(){
 		this.timeService.startClock();

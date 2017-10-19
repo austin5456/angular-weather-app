@@ -359,6 +359,7 @@ var weeklyForecastM = {
 };
 
 //var startClock = (function () {
+    //clock has been transfered
 var clock = {
     init: function () {
         this.cacheDom();

@@ -11,17 +11,11 @@
     padding-right: 0;
     padding-left: 0;
 }
-.time_box {
-    text-shadow: black 2px 1px 1px;
-}
 .weather_icon {
     background: url(../assets/weather_icons_sprite.png);
     height: 116px;
     width: 116px;
     margin: 0 auto;
-}
-p {
-    display: inline-block;
 }
 .zone_title {
     text-shadow: black 1px 1px 2px;
@@ -35,17 +29,7 @@ p {
     font-size: 3.2em;
     text-align: center;
 }
-.seconds_holder {
-    display: inline-block;
-}
-.seconds, .ampm {
-    display: block;
-    font-size: 1.6rem;
-}
-.ampm {
-    margin-bottom: -12px;
-}
-.weather_conditions {
+.current_conditions_box {
     border-radius: 10px;
     text-align: center;
     font-size: 2em;
@@ -61,11 +45,8 @@ p {
 }
 @media (min-width: 576px) {
 
-    .weather_conditions {
+    .current_conditions_box {
         font-size: 1.65em;
-    }
-    .time_box {
-        margin: 44px 0;
     }
     .temp_box {
         margin: 25px 0;
@@ -73,11 +54,8 @@ p {
 }
 
 @media (min-width: 1000px) {
-    .weather_conditions {
+    .current_conditions_box {
         font-size: 2em;
-    }
-    .time_box {
-        margin: 0;
     }
     .temp_box {
         margin: 0;

@@ -8,6 +8,14 @@ export class TimeService {
 	hours: string;
 	ampm: string;
 
+	spitTime():string {
+		if (this.seconds){
+			let timeString = this.hours + ":" + this.minutes + ":" + this.seconds + " " + this.ampm;
+			return timeString;
+		}
+		else {return "Clock has not been initiated yet"}
+	}
+
 	startClock():void {
 
 		let self = this;
@@ -24,17 +32,9 @@ export class TimeService {
 				this.clockGears.displayFilter("hours", this.clockGears.hours);
 				self.ampm = this.clockGears.ampm;
 			},
-			spitTime: function () {
-				var secondString = this.clockGears.seconds.toString();
-				var minuteString = this.clockGears.minutes.toString();
-				var hourString = this.clockGears.hours.toString();
-				var amPm = this.clockGears.ampm;
-				var timeString = hourString + ":" + minuteString + ":" + secondString + " " + amPm;
-				return timeString;
-			},
 			clockGears: {
 				startInterval: function () {
-					var myScope = this;
+					let myScope = this;
 					setInterval(function () {
 						myScope.updateSeconds();
 					}, 1000);
