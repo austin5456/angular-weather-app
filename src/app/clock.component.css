@@ -1,0 +1,42 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+
+
+.time_box {
+    text-shadow: black 2px 1px 1px;
+}
+
+p {
+    display: inline-block;
+}
+.text_enlarge {
+    text-shadow: black 2px 2px 2px;
+    font-family: "Oswald", "sans-serif";
+    font-size: 3.2em;
+    text-align: center;
+}
+.seconds_holder {
+    display: inline-block;
+}
+.seconds, .ampm {
+    display: block;
+    font-size: 1.6rem;
+}
+.ampm {
+    margin-bottom: -12px;
+}
+.weather_conditions {
+    border-radius: 10px;
+    text-align: center;
+    font-size: 2em;
+}
+@media (min-width: 576px) {
+    .time_box {
+        margin: 44px 0;
+    }
+}
+
+@media (min-width: 1000px) {
+    .time_box {
+        margin: 0;
+    }
+}

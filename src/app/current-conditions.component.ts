@@ -1,17 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { TimeService } from "./weather-data.service";
+import { Component } from "@angular/core";
 
 @Component({
 	selector: "current-conditions",
 	styleUrls: ["current-conditions.component.css"],
-	templateUrl: "current-conditions.component.html",
-  providers: [TimeService]
+	templateUrl: "current-conditions.component.html"
 })
-export class CurrentConditionsComponent implements OnInit{
-
-	 constructor(private timeService: TimeService){}
-
-	 ngOnInit(){
-	 this.timeService.startClock();
-	}
-}
+export class CurrentConditionsComponent {}

@@ -9,6 +9,7 @@ import { HourlyForecastComponent } from "./hourly-forecast.component";
 import { WeeklyForecastComponent } from "./weekly-forecast.component";
 import { LoaderComponent } from "./loader.component";
 import { LocationComponent } from "./location.component";
+import { ClockComponent } from "./clock.component";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LocationComponent } from "./location.component";
     HourlyForecastComponent,
     WeeklyForecastComponent,
     LoaderComponent,
-    LocationComponent
+    LocationComponent,
+    ClockComponent
   ],
   imports: [
     BrowserModule
