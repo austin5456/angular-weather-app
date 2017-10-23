@@ -15,34 +15,40 @@ export class HourlyForecastComponent implements OnInit {
 		private mockData: MockHourlyData
 		){}
 
-	hObj = this.mockData.createData();;
-	//hourlyForecast = this.mockData.createData();
+	hObj = this.mockData.createData();
+	//icon Urls need filtering to display custom icons
+	trimedIconUrls: string[] = [];
 
-	mockTemps: string[] = [];
-	mockIcons: string[] = [];
-	craftedArray: string[] = [];
+	trimedTemps: string[] = [];
+	iconArray: string[] = [];
 
-	iconArrayMaker(url){
-		this.craftedArray.push(this.iconSwapper.swapIcon(url));
-		console.log(this.iconSwapper.swapIcon(url));
+	resetArrays(){
+		this.trimedIconUrls.length = 0;
+		this.iconArray.length = 0;
+		this.trimedTemps.length = 0;
 	}
+
 	trimData(){
+
 		//make an array with 3 hour intervals in the data
 		for (let i = 0; i < 9; i++){
-
-			 this.mockIcons.push(this.hObj.hourly_forecast[i * 3].icon_url);
-			 this.mockTemps.push(this.hObj.hourly_forecast[i * 3].temp.english + "°");
+			this.trimedIconUrls.push(this.hObj.hourly_forecast[i * 3].icon_url);
+			this.trimedTemps.push(this.hObj.hourly_forecast[i * 3].temp.english + "°");
 		}
 	}
-
+	urlToIcon(){
+		//populates an array with the background position to display icon from sprite
+		this.trimedIconUrls.forEach( 
+			(url)=> this.iconArray.push(this.iconSwapper.swapIcon(url))
+			);
+	}
 
 	ngOnInit(){
-		console.log(this.hObj);
+		this.resetArrays();
 		this.trimData();
-		console.log(this.mockTemps);
-		console.log(this.mockIcons);
-		this.mockIcons.forEach( (potato)=> {
-			//console.log(potato);
-			return this.iconArrayMaker(potato)});
+		this.urlToIcon();
+		console.log(this.hObj);
+		console.log(this.trimedTemps);
+		console.log(this.trimedIconUrls);
 	}
 }
