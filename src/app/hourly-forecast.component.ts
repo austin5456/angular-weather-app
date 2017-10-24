@@ -15,7 +15,14 @@ export class HourlyForecastComponent implements OnInit {
 		private mockData: MockHourlyData
 		){}
 
-	hObj = this.mockData.createData();
+	hObj;
+
+	setData() {
+		this.mockData.createData().then((data) => {
+			this.hObj = data;
+			this.render();
+			});
+	}
 	//icon Urls need filtering to display custom icons
 	trimedIconUrls: string[] = [];
 
@@ -29,7 +36,6 @@ export class HourlyForecastComponent implements OnInit {
 	}
 
 	trimData(){
-
 		//make an array with 3 hour intervals in the data
 		for (let i = 0; i < 9; i++){
 			this.trimedIconUrls.push(this.hObj.hourly_forecast[i * 3].icon_url);
@@ -42,11 +48,15 @@ export class HourlyForecastComponent implements OnInit {
 			(url)=> this.iconArray.push(this.iconSwapper.swapIcon(url))
 			);
 	}
-
-	ngOnInit(){
+	render(){
 		this.resetArrays();
 		this.trimData();
 		this.urlToIcon();
+	}
+
+	ngOnInit(){
+		this.setData();
+		//this.render();
 		console.log(this.hObj);
 		console.log(this.trimedTemps);
 		console.log(this.trimedIconUrls);
