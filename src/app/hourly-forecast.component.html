@@ -5,12 +5,12 @@
   </div>
   <div class="hourly_forecast">
     <div class="hour_img_holder">
-      <div *ngFor="let iconPos of iconArray" 
+      <div *ngFor="let iconPos of displayedIconArray" 
       class="weather_icon_small"
       style.background-position = "{{iconPos}}" ></div>
     </div>
     <div class="hourly_temp_wrap">
-      <span *ngFor="let temperature of trimedTemps" 
+      <span *ngFor="let temperature of displayedTempArray" 
       class="hourly_temp_holder">{{temperature}}</span>
     </div>
     <div class="timeline_holder">

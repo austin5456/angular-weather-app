@@ -9,56 +9,54 @@ import { MockHourlyData } from "./mockHourlyData";
 	providers: [IconSwapper, MockHourlyData]
 })
 export class HourlyForecastComponent implements OnInit {
-
+	hObj;
 	constructor(
 		private iconSwapper: IconSwapper,
 		private mockData: MockHourlyData
 		){}
 
-	hObj;
-
 	setData() {
 		this.mockData.createData().then((data) => {
 			this.hObj = data;
+			this.trimData();
 			this.render();
 			});
 	}
-	//icon Urls need filtering to display custom icons
-	trimedIconUrls: string[] = [];
+	trimmedIconUrls: string[] = [];
+	trimmedTemps: string[] = [];
 
-	trimedTemps: string[] = [];
-	iconArray: string[] = [];
-
-	resetArrays(){
-		this.trimedIconUrls.length = 0;
-		this.iconArray.length = 0;
-		this.trimedTemps.length = 0;
-	}
+	displayedIconArray: string[] = [];
+	displayedTempArray: string[] = [];
 
 	trimData(){
-		//make an array with 3 hour intervals in the data
+		//make arrays with 3 hour intervals in the data
+		let iconUrlArray = [];
+		let tempArray = [];
+
 		for (let i = 0; i < 9; i++){
-			this.trimedIconUrls.push(this.hObj.hourly_forecast[i * 3].icon_url);
-			this.trimedTemps.push(this.hObj.hourly_forecast[i * 3].temp.english + "°");
+			iconUrlArray.push(this.hObj.hourly_forecast[i * 3].icon_url);
+			tempArray.push(this.hObj.hourly_forecast[i * 3].temp.english + "°");
 		}
+		this.trimmedIconUrls = iconUrlArray;
+		this.trimmedTemps = tempArray;
 	}
-	urlToIcon(){
-		//populates an array with the background position to display icon from sprite
-		this.trimedIconUrls.forEach( 
-			(url)=> this.iconArray.push(this.iconSwapper.swapIcon(url))
+	urlToIcon(): string[] {
+		let iconPositions: string[] = [];//populates an array with the background position to display icon from sprite
+		this.trimmedIconUrls.forEach( 
+			(url)=> iconPositions.push(this.iconSwapper.swapIcon(url))
 			);
+		return iconPositions;
 	}
 	render(){
-		this.resetArrays();
-		this.trimData();
-		this.urlToIcon();
+		this.displayedIconArray = this.urlToIcon();
+		this.displayedTempArray = this.trimmedTemps;
 	}
 
 	ngOnInit(){
 		this.setData();
 		//this.render();
 		console.log(this.hObj);
-		console.log(this.trimedTemps);
-		console.log(this.trimedIconUrls);
+		console.log(this.trimmedTemps);
+		console.log(this.trimmedIconUrls);
 	}
 }
