@@ -1,26 +1,36 @@
 import { Component, OnInit } from "@angular/core";
 import { IconSwapper, OnCreate } from "./icon-swapper.service";
 import { MockHourlyData } from "./mockHourlyData";
+import { DataService } from "./data.service";
 
 @Component({
 	selector: "hourly-forecast",
 	styleUrls: ["./hourly-forecast.component.css"],
 	templateUrl: "./hourly-forecast.component.html",
-	providers: [IconSwapper, MockHourlyData]
+	providers: [IconSwapper, MockHourlyData, DataService]
 })
 export class HourlyForecastComponent implements OnInit {
 	hObj;
 	constructor(
 		private iconSwapper: IconSwapper,
-		private mockData: MockHourlyData
+		private mockData: MockHourlyData,
+		private dataService: DataService
 		){}
 
 	setData() {
 		this.mockData.createData().then((data) => {
 			this.hObj = data;
+			//this.dataService.getHourlyData().then((data) => console.log(data));
 			this.trimData();
 			this.render();
 			});
+	}
+	setRealData(){
+		this.dataService.hourlyData().then((data) => {
+			this.hObj = data;
+			this.trimData();
+			this.render();
+		});
 	}
 	trimmedIconUrls: string[] = [];
 	trimmedTemps: string[] = [];
@@ -53,7 +63,7 @@ export class HourlyForecastComponent implements OnInit {
 	}
 
 	ngOnInit(){
-		this.setData();
+		this.setRealData();
 		//this.render();
 		console.log(this.hObj);
 		console.log(this.trimmedTemps);
