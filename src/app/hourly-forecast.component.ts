@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Inject } from "@angular/core";
 import { IconSwapper } from "./icon-swapper.service";
 import { DataService } from "./data.service";
 
@@ -18,11 +18,18 @@ export class HourlyForecastComponent implements OnInit {
 	displayedData: hourlyUnit[];
 	constructor(
 		private iconSwapper: IconSwapper,
-		private dataService: DataService
+		@Inject(DataService) public dataService
 		){}
 
 	getData(){
-		this.dataService.hourlyData().then((data) => {
+
+		// this.dataService.getHourly().then((data) => {
+		// 	this.hObj = data;
+		// 	let dataHolder:hourlyUnit[] = this.trimData();
+		// 	this.render(dataHolder);
+		// });
+
+		this.dataService.hourlyData.then((data) => {
 			this.hObj = data;
 			let dataHolder:hourlyUnit[] = this.trimData();
 			this.render(dataHolder);

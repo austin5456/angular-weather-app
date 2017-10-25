@@ -1,5 +1,4 @@
   <div class="weekly_forecast">
-
     <div *ngFor="let unit of weeklyForecast" class="wk_forecast_unit wrapper_style">
       <div class="weekday_box">
         <p class="bottom_bar">
@@ -22,5 +21,6 @@
         <p><span class="temp_low">{{unit.lowTemp}}</span></p>
       </div>
     </div>
+    <button (click)="testDataChange()">testDataChange</button>
 
   </div>
