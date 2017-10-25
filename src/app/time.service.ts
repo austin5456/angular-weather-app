@@ -10,7 +10,7 @@ export class TimeService {
 
 	spitTime():string {
 		if (this.seconds){
-			let timeString = this.hours + ":" + this.minutes + ":" + this.seconds + " " + this.ampm;
+			let timeString: string = this.hours + ":" + this.minutes + ":" + this.seconds + " " + this.ampm;
 			return timeString;
 		}
 		else {return "Clock has not been initiated yet"}
@@ -18,7 +18,7 @@ export class TimeService {
 
 	startClock():void {
 
-		let self = this;
+		let timeService = this;
 
 		let clock = {
 			init: function () {
@@ -30,7 +30,7 @@ export class TimeService {
 				this.clockGears.displayFilter("seconds", this.clockGears.seconds);
 				this.clockGears.displayFilter("minutes", this.clockGears.minutes);
 				this.clockGears.displayFilter("hours", this.clockGears.hours);
-				self.ampm = this.clockGears.ampm;
+				timeService.ampm = this.clockGears.ampm;
 			},
 			clockGears: {
 				startInterval: function () {
@@ -66,14 +66,8 @@ export class TimeService {
 				updateHours: function () {
 					this.hours += 1;
 					this.hours = (this.hours === 24) ? 0 : this.hours;
-					if (this.hours >= 12) {
-						this.ampm = "PM"
-					}
-					else {
-						this.ampm = "AM";
-					}
+					this.ampm = (this.hours >= 12) ? "PM" : "AM";
 					this.displayFilter("hours", this.hours);
-					self.ampm = this.ampm;
 				},
 				displayFilter: function(property, value) {
 					if (property === "seconds" || property === "minutes") {
@@ -81,11 +75,12 @@ export class TimeService {
 					}
 
 					if (property === "hours") {
+						timeService.ampm = this.ampm;
 						value = (value >= 12) ? (value - 12) : value;
 						value = (value === 0) ? 12 : value;
 					}
 
-					self[property] = value;
+					timeService[property] = value;
 				}
 			}
 		};

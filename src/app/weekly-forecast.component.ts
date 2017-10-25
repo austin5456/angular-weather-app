@@ -11,6 +11,7 @@ interface forecastUnit {
 	highTemp: string,
 	lowTemp: string
 }
+
 @Component({
 	selector: "weekly-forecast",
 	styleUrls: ["./weekly-forecast.component.css"],
@@ -29,7 +30,7 @@ export class WeeklyForecastComponent implements OnInit {
 	getData(){
 		this.dataService.weeklyForecast().then(
 			(data) => {
-				console.log(data);
+				//console.log(data);
 				this.fObj = data;
 				let dataHolder: forecastUnit[] = this.trimData();
 				this.render(dataHolder);
@@ -52,7 +53,8 @@ export class WeeklyForecastComponent implements OnInit {
 				condition: this.fObj.forecast.simpleforecast.forecastday[i].conditions,
 				icon: this.iconSwapper.swapIcon(this.fObj.forecast.simpleforecast.forecastday[i].icon_url),
 				highTemp: "High " + this.fObj.forecast.simpleforecast.forecastday[i].high.fahrenheit + "°f",
-				lowTemp: "Low " + this.fObj.forecast.simpleforecast.forecastday[i].low.fahrenheit + "°f"});
+				lowTemp: "Low " + this.fObj.forecast.simpleforecast.forecastday[i].low.fahrenheit + "°f"
+			});
 
 		}
 		return weekdayHolder;

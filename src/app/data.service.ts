@@ -11,14 +11,14 @@ export class DataService {
 
 
 	constructor(private http: Http) { }
-	private hourlyUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/hourly/q/76148.json";
-	private conditionsUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/conditions/q/76148.json";
-	private weeklyUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/forecast10day/q/76148.json";
+	hourlyUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/hourly/q/76148.json";
+	conditionsUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/conditions/q/76148.json";
+	weeklyUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/forecast10day/q/76148.json";
 
 	hourlyData(): Promise<DataObj> {
 		return this.http.get(this.hourlyUrl)
 		.toPromise().then(response => {
-			console.log(response);
+			//console.log(response);
 			return response.json() as DataObj})
 		.catch(this.handleError);
 	}
@@ -26,7 +26,7 @@ export class DataService {
 	cureentConditions(): Promise<DataObj> {
 		return this.http.get(this.conditionsUrl)
 		.toPromise().then(response => {
-			console.log(response);
+			//console.log(response);
 			return response.json() as DataObj})
 		.catch(this.handleError);
 	}
@@ -34,7 +34,7 @@ export class DataService {
 	weeklyForecast(): Promise<DataObj> {
 		return this.http.get(this.weeklyUrl)
 		.toPromise().then(response => {
-			console.log(response);
+			//console.log(response);
 			return response.json() as DataObj})
 		.catch(this.handleError);
 	}
