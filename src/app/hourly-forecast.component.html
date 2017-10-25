@@ -4,15 +4,21 @@
     <h4>Hourly Forecast</h4>
   </div>
   <div class="hourly_forecast">
-    <div class="hour_img_holder">
-      <div *ngFor="let iconPos of displayedIconArray" 
-      class="weather_icon_small"
-      style.background-position = "{{iconPos}}" ></div>
+    
+  
+<div class="hourly_data_holder">
+<div *ngFor="let temperature of displayedTempArray" 
+ class="hourly_unit">
+     <div class="hour_img_holder">
+      <div class="weather_icon_small">
+      </div>
     </div>
-    <div class="hourly_temp_wrap">
-      <span *ngFor="let temperature of displayedTempArray" 
-      class="hourly_temp_holder">{{temperature}}</span>
+    <!-- <div class="hourly_temp_wrap"> -->
+      <div class="hourly_temp_holder">{{temperature}}</div>
+    <!-- </div> -->
     </div>
+    </div>
+
     <div class="timeline_holder">
       <div class="outer_bars">
         <div class="horizontal_bar">

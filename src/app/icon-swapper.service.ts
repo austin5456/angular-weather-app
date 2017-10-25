@@ -53,56 +53,40 @@ export class IconSwapper {
             return icons.nt_partlycloudy;
             case "http://icons.wxug.com/i/c/k/mostlycloudy.gif":
             return    icons.day_mostlycloudy;
-
             case "http://icons.wxug.com/i/c/k/nt_mostlycloudy.gif":
             return   icons.nt_mostlycloudy;
-
             case "http://icons.wxug.com/i/c/k/clear.gif":
             return    icons.day_clear;
-
             case "http://icons.wxug.com/i/c/k/nt_clear.gif":
             return   icons.nt_clear;
-
             case "http://icons.wxug.com/i/c/k/chancetstorms.gif":
             return   icons.day_chancetstorms;
-
             case "http://icons.wxug.com/i/c/k/nt_chancetstorms.gif":
             return   icons.nt_chancetstorms;
-
             case "http://icons.wxug.com/i/c/k/tstorms.gif":
             return   icons.day_tstorms;
-
             case "http://icons.wxug.com/i/c/k/nt_tstorms.gif":
             return   icons.nt_tstorms;
-
             case "http://icons.wxug.com/i/c/k/cloudy.gif":
             return icons.cloudy;
-
             case "http://icons.wxug.com/i/c/k/nt_cloudy.gif":
             return   icons.nt_cloudy;
-
             case "http://icons.wxug.com/i/c/k/chancerain.gif":
             return   icons.chancerain;
-
             case "http://icons.wxug.com/i/c/k/nt_chancerain.gif":
             return   icons.nt_chancerain;
-
             case "http://icons.wxug.com/i/c/k/rain.gif":
             return   icons.rain;
-
             case "http://icons.wxug.com/i/c/k/nt_rain.gif":
             return icons.nt_rain;
-
             case "http://icons.wxug.com/i/c/k/fog.gif":
             return  icons.fog;
-
             case "http://icons.wxug.com/i/c/k/nt_fog.gif":
             return  icons.nt_fog;
             case "http://icons.wxug.com/i/c/k/snow.gif":
             return icons.snow;
             case "http://icons.wxug.com/i/c/k/nt_snow.gif":
             return icons.nt_snow;
-
             default:
             return "CRAP! something's wrong with the feed";
 

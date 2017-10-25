@@ -1,3 +1,28 @@
+/*ngFor section*/
+.hourly_unit {
+    width: 106px;
+    height: 58px;
+    float: left;
+}
+.hourly_data_holder {
+    position: absolute;
+    right: -23px;
+    height: 100%;
+    width: 100px;
+}
+.hour_img_holder {
+    float: right;
+}
+.weather_icon_small {
+    background: url(../assets/weather_icons_sprite.png);
+    background-size: 500%;
+    height: 58px;
+    width: 58px;
+}
+.hourly_temp_holder {
+    margin-top: 12px;
+}
+/*END section*/
 
 .hourly_wrap {
     height: 100%;
@@ -31,28 +56,7 @@
     width: 236px;
     margin: 0 auto;
 }
-.hour_img_holder {
-    position: relative;
-    top: -4px;
-    left: 10px;
-}
-.weather_icon_small {
-    background: url(../assets/weather_icons_sprite.png);
-    background-size: 500%;
-    position: relative;
-    left: 180px;
-    height: 58px;
-    width: 58px;
-}
-.hourly_temp_holder {
-    display: block;
-    height: 58px;
-}
-.hourly_temp_wrap {
-    left: 160px;
-    position: absolute;
-    top: 12px;
-}
+
 .outer_bars {
     position: absolute;
     top: 24px;
@@ -105,37 +109,37 @@
     }
 }
 @media (min-width: 1000px) {
-   
+
     .hourly_forecast {
         width: 522px;
         margin: 86px auto 0 auto;
         height: auto;
     }
+    /*ngFor section*/
+    .hourly_unit {
+        height: 106px;
+        width: 58px;
+    }
+    .hourly_data_holder {
+        position: static;
+        width: 100%;
+
+    }
     .hour_img_holder {
-        position: relative;
-        top: -30px;
-        left: 0;
+        float: none;
     }
     .weather_icon_small {
-        position: relative;
         background: url(../assets/weather_icons_sprite.png);
         background-size: 500%;
         height: 58px;
         width: 58px;
-        margin: 0 auto;
-        float: left;
-        left: 0;
     }
     .hourly_temp_holder {
-        display: block;
-        width: 58px;
-        height: auto;
         text-align: center;
-        float: left;
+        margin-top: 20px;
     }
-    .hourly_temp_wrap {
-        position: static;
-    }
+    /*END section*/
+
     .outer_bars {
         position: static;
         width: 89%;
