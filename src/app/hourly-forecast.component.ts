@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { IconSwapper } from "./icon-swapper.service";
-import { MockHourlyData } from "./mockHourlyData";
 import { DataService } from "./data.service";
 
 
@@ -12,21 +11,19 @@ interface hourlyUnit {
 	selector: "hourly-forecast",
 	styleUrls: ["./hourly-forecast.component.css"],
 	templateUrl: "./hourly-forecast.component.html",
-	providers: [IconSwapper, MockHourlyData]
+	providers: [IconSwapper]
 })
 export class HourlyForecastComponent implements OnInit {
 	hObj;
 	displayedData: hourlyUnit[];
 	constructor(
 		private iconSwapper: IconSwapper,
-		private mockData: MockHourlyData,
 		private dataService: DataService
 		){}
 
-	setRealData(){
+	getData(){
 		this.dataService.hourlyData().then((data) => {
 			this.hObj = data;
-			console.log(this.trimData());
 			let dataHolder:hourlyUnit[] = this.trimData();
 			this.render(dataHolder);
 		});
@@ -51,7 +48,6 @@ export class HourlyForecastComponent implements OnInit {
 	}
 
 	ngOnInit(){
-		this.setRealData();
-		console.log(this.hObj);
+		this.getData();
 	}
 }
