@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { IconSwapper, OnCreate } from "./icon-swapper.service";
+import { IconSwapper } from "./icon-swapper.service";
 import { MockHourlyData } from "./mockHourlyData";
 import { DataService } from "./data.service";
 
@@ -7,7 +7,7 @@ import { DataService } from "./data.service";
 	selector: "hourly-forecast",
 	styleUrls: ["./hourly-forecast.component.css"],
 	templateUrl: "./hourly-forecast.component.html",
-	providers: [IconSwapper, MockHourlyData, DataService]
+	providers: [IconSwapper, MockHourlyData]
 })
 export class HourlyForecastComponent implements OnInit {
 	hObj;
@@ -50,15 +50,8 @@ export class HourlyForecastComponent implements OnInit {
 		this.trimmedIconUrls = iconUrlArray;
 		this.trimmedTemps = tempArray;
 	}
-	urlToIcon(): string[] {
-		let iconPositions: string[] = [];//populates an array with the background position to display icon from sprite
-		this.trimmedIconUrls.forEach( 
-			(url)=> iconPositions.push(this.iconSwapper.swapIcon(url))
-			);
-		return iconPositions;
-	}
 	render(){
-		this.displayedIconArray = this.urlToIcon();
+		this.displayedIconArray = this.iconSwapper.urlToIconArr(this.trimmedIconUrls);
 		this.displayedTempArray = this.trimmedTemps;
 	}
 

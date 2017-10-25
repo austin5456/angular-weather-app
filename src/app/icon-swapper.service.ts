@@ -10,6 +10,15 @@ export class OnCreate {}
 @Injectable()
 export class IconSwapper {
 
+    urlToIconArr(iconUrls: string[]): string[] {
+        let iconPositions: string[] = [];//populates an array with the background position to display icon from sprite
+        iconUrls.forEach( 
+            (url)=> iconPositions.push(this.swapIcon(url))
+            );
+        return iconPositions;
+    }
+
+
     swapIcon(feed) {
         //console.log(feed); check which is wrong
 
