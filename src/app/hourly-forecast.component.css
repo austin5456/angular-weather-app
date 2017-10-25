@@ -10,7 +10,7 @@
     height: 100%;
     width: 100px;
 }
-.hour_img_holder {
+.icon_box {
     float: right;
 }
 .weather_icon_small {
@@ -19,7 +19,7 @@
     height: 58px;
     width: 58px;
 }
-.hourly_temp_holder {
+.temperature {
     margin-top: 12px;
 }
 /*END section*/
@@ -125,16 +125,10 @@
         width: 100%;
 
     }
-    .hour_img_holder {
+    .icon_box {
         float: none;
     }
-    .weather_icon_small {
-        background: url(../assets/weather_icons_sprite.png);
-        background-size: 500%;
-        height: 58px;
-        width: 58px;
-    }
-    .hourly_temp_holder {
+    .temperature {
         text-align: center;
         margin-top: 20px;
     }

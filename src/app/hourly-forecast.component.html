@@ -4,45 +4,43 @@
     <h4>Hourly Forecast</h4>
   </div>
   <div class="hourly_forecast">
-    
-  
-<div class="hourly_data_holder">
-<div *ngFor="let temperature of displayedTempArray" 
- class="hourly_unit">
-     <div class="hour_img_holder">
-      <div class="weather_icon_small">
-      </div>
-    </div>
-    <!-- <div class="hourly_temp_wrap"> -->
-      <div class="hourly_temp_holder">{{temperature}}</div>
-    <!-- </div> -->
-    </div>
-    </div>
 
-    <div class="timeline_holder">
-      <div class="outer_bars">
-        <div class="horizontal_bar">
-          <div class="inner_bars"></div>
-          <div class="inner_bars"></div>
-          <div class="inner_bars"></div>
-          <div class="inner_bars"></div>
-          <div class="inner_bars"></div>
-          <div class="inner_bars"></div>
-          <div class="inner_bars"></div>
+
+    <div class="hourly_data_holder">
+      <div *ngFor="let unit of displayedData" 
+      class="hourly_unit">
+      <div class="icon_box">
+        <div class="weather_icon_small"
+        style.background-position="{{unit.icon}}">
         </div>
       </div>
+      <div class="temperature">{{unit.temperature}}</div>
     </div>
-    <div class="hourly_time_holder">
-      <span class="hourly_time_span">NOW</span>
-      <span class="hourly_time_span">6H</span>
-      <span class="hourly_time_span">12H</span>
-      <span class="hourly_time_span">18H</span>
-      <span class="hourly_time_span">24H</span>
-    </div>
-    <div class="hourly_day_holder">
-      <span class="day_left">Today</span>
-      <span class="day_right">Tomorrow</span>
-    </div>
-    <button (click)="setData()" style="position: absolute; left: 42.5%; bottom: 0;">changeData</button>
   </div>
+
+  <div class="timeline_holder">
+    <div class="outer_bars">
+      <div class="horizontal_bar">
+        <div class="inner_bars"></div>
+        <div class="inner_bars"></div>
+        <div class="inner_bars"></div>
+        <div class="inner_bars"></div>
+        <div class="inner_bars"></div>
+        <div class="inner_bars"></div>
+        <div class="inner_bars"></div>
+      </div>
+    </div>
+  </div>
+  <div class="hourly_time_holder">
+    <span class="hourly_time_span">NOW</span>
+    <span class="hourly_time_span">6H</span>
+    <span class="hourly_time_span">12H</span>
+    <span class="hourly_time_span">18H</span>
+    <span class="hourly_time_span">24H</span>
+  </div>
+  <div class="hourly_day_holder">
+    <span class="day_left">Today</span>
+    <span class="day_right">Tomorrow</span>
+  </div>
+</div>
 </div>

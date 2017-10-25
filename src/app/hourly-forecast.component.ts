@@ -3,6 +3,11 @@ import { IconSwapper } from "./icon-swapper.service";
 import { MockHourlyData } from "./mockHourlyData";
 import { DataService } from "./data.service";
 
+
+interface hourlyUnit {
+	icon: string,
+	temperature: string
+}
 @Component({
 	selector: "hourly-forecast",
 	styleUrls: ["./hourly-forecast.component.css"],
@@ -11,55 +16,42 @@ import { DataService } from "./data.service";
 })
 export class HourlyForecastComponent implements OnInit {
 	hObj;
+	displayedData: hourlyUnit[];
 	constructor(
 		private iconSwapper: IconSwapper,
 		private mockData: MockHourlyData,
 		private dataService: DataService
 		){}
 
-	setData() {
-		this.mockData.createData().then((data) => {
-			this.hObj = data;
-			//this.dataService.getHourlyData().then((data) => console.log(data));
-			this.trimData();
-			this.render();
-			});
-	}
 	setRealData(){
 		this.dataService.hourlyData().then((data) => {
 			this.hObj = data;
-			this.trimData();
-			this.render();
+			console.log(this.trimData());
+			let dataHolder:hourlyUnit[] = this.trimData();
+			this.render(dataHolder);
 		});
 	}
-	trimmedIconUrls: string[] = [];
-	trimmedTemps: string[] = [];
 
-	displayedIconArray: string[] = [];
-	displayedTempArray: string[] = [];
-
-	trimData(){
-		//make arrays with 3 hour intervals in the data
-		let iconUrlArray = [];
-		let tempArray = [];
+	trimData(): hourlyUnit[] {
+		let returnedData: hourlyUnit[] = [];
 
 		for (let i = 0; i < 9; i++){
-			iconUrlArray.push(this.hObj.hourly_forecast[i * 3].icon_url);
-			tempArray.push(this.hObj.hourly_forecast[i * 3].temp.english + "°");
+
+			returnedData.push({
+				icon: this.iconSwapper.swapIcon(this.hObj.hourly_forecast[i * 3].icon_url),
+				temperature: this.hObj.hourly_forecast[i * 3].temp.english + "°"
+			});
 		}
-		this.trimmedIconUrls = iconUrlArray;
-		this.trimmedTemps = tempArray;
+
+		return returnedData;
 	}
-	render(){
-		this.displayedIconArray = this.iconSwapper.urlToIconArr(this.trimmedIconUrls);
-		this.displayedTempArray = this.trimmedTemps;
+	render(data:hourlyUnit[]){
+		this.displayedData = data;
+
 	}
 
 	ngOnInit(){
 		this.setRealData();
-		//this.render();
 		console.log(this.hObj);
-		console.log(this.trimmedTemps);
-		console.log(this.trimmedIconUrls);
 	}
 }
