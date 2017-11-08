@@ -58,8 +58,8 @@ export class WeeklyForecastComponent implements OnInit {
 				date: data.forecast.simpleforecast.forecastday[i].date.day,
 				condition: data.forecast.simpleforecast.forecastday[i].conditions,
 				icon: this.iconSwapper.swapIcon(data.forecast.simpleforecast.forecastday[i].icon_url),
-				highTemp: "High " + data.forecast.simpleforecast.forecastday[i].high.fahrenheit + "°f",
-				lowTemp: "Low " + data.forecast.simpleforecast.forecastday[i].low.fahrenheit + "°f"
+				highTemp: data.forecast.simpleforecast.forecastday[i].high.fahrenheit,
+				lowTemp: data.forecast.simpleforecast.forecastday[i].low.fahrenheit
 			});
 
 		}
