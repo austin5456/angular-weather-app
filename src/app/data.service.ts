@@ -71,31 +71,32 @@ export class DataService {
 		.catch(this.handleError);
 	}
 
-	emitWeekly() {
+	emitWeekly(): void {
 		console.log("subject call made");
 		this.getWeekly().then( data => this.weeklyData.next(data));
 	}
 
-	emitHourly() {
+	emitHourly(): void {
 		this.getHourly().then( data => this.hourlyData.next(data));
 	}
 	
-	testDataChange() {
+	testDataChange():void {
 		this.changeZip("54545");
 		this.getWeekly().then(dataObj => {this.weeklyData.next(dataObj)});
 		this.getHourly().then( data => this.hourlyData.next(data));
 	}
-	changeZip(zip:string) {
+	changeZip(zip:string): void {
 		this.zip = zip;
 		this.hourlyUrl = "http://api.wunderground.com/api/238e926ce0161f62/hourly/q/" + zip + ".json";
 		this.conditionsUrl = "http://api.wunderground.com/api/238e926ce0161f62/conditions/q/" + zip + ".json";
 		this.weeklyUrl = "http://api.wunderground.com/api/238e926ce0161f62/forecast10day/q/" + zip + ".json";
 	}
-	getAllData() {
+	getAllData(): void {
 		this.conditionsData = this.getConditions();
 		this.emitWeekly();
 
 	}
 	conditionsData = this.getConditions();
+	badInit = console.log("im bad to the bone");
 
 }

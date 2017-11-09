@@ -1,16 +1,6 @@
 import { Component, OnInit, Inject } from "@angular/core";
 import { DataService } from "./data.service";
 import { IconSwapper } from "./icon-swapper.service";
-import { Observable }        from 'rxjs/Observable';
-import { Headers, Http } from '@angular/http';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-import { Subject }           from 'rxjs/Subject';
-
-
 
 interface forecastUnit {
 	day: string,
@@ -30,7 +20,6 @@ interface forecastUnit {
 export class WeeklyForecastComponent implements OnInit {
 	constructor(
 		private iconSwapper : IconSwapper,
-		private http : Http,
 		@Inject(DataService) public dataService
 		){}
 

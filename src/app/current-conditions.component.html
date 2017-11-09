@@ -1,16 +1,18 @@
 <div class="current_conditions wrapper_style">
+  <div *ngIf="CCUnit">
   <div class="zone_title bottom_bar">
     <h4 class="date_string">
-      <span id="today_month">October</span>
+      <span id="today_month">{{CCUnit.month}}</span>
       2017
     </h4>
   </div>
  <clock></clock>
   <div class="current_conditions_box">
-    <div class="weather_icon" id="current_weather_icon" style="background-position: 0px 40%;"></div>
-    <p id="current_weather">Clear</p>
+    <div class="weather_icon" id="current_weather_icon" style.background-position="{{CCUnit.icon}}"></div>
+    <p id="current_weather">{{CCUnit.conditions}}</p>
   </div>
   <div class="text_enlarge temp_box">
-    <p><span id="current_temperature">70</span> °F</p>
+    <p><span id="current_temperature">{{CCUnit.temp}}</span> °F</p>
   </div>
+</div>
 </div>

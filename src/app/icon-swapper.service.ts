@@ -20,8 +20,6 @@ export class IconSwapper {
 
 
     swapIcon(feed) {
-        //console.log(feed); check which is wrong
-
 
         const icons = {
             day_partlycloudy: "-28% 39%",
