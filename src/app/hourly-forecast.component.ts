@@ -21,29 +21,20 @@ export class HourlyForecastComponent implements OnInit {
 		@Inject(DataService) public dataService
 		){}
 
-	getData(){
-
-		// this.dataService.getHourly().then((data) => {
-		// 	this.hObj = data;
-		// 	let dataHolder:hourlyUnit[] = this.trimData();
-		// 	this.render(dataHolder);
-		// });
-
-		this.dataService.hourlyData.then((data) => {
-			this.hObj = data;
-			let dataHolder:hourlyUnit[] = this.trimData();
-			this.render(dataHolder);
-		});
+	handleData(data) {
+		this.hObj = data;
+		let dataHolder:hourlyUnit[] = this.trimData(data);
+		this.render(dataHolder);
 	}
 
-	trimData(): hourlyUnit[] {
+	trimData(data): hourlyUnit[] {
 		let returnedData: hourlyUnit[] = [];
 
 		for (let i = 0; i < 9; i++){
 
 			returnedData.push({
-				icon: this.iconSwapper.swapIcon(this.hObj.hourly_forecast[i * 3].icon_url),
-				temperature: this.hObj.hourly_forecast[i * 3].temp.english + "°"
+				icon: this.iconSwapper.swapIcon(data.hourly_forecast[i * 3].icon_url),
+				temperature: data.hourly_forecast[i * 3].temp.english + "°"
 			});
 		}
 
@@ -55,8 +46,8 @@ export class HourlyForecastComponent implements OnInit {
 	}
 
 	ngOnInit(){
+		this.dataService.hourlyData.subscribe(data => this.handleData(data));
 		console.log("hourly started")
 		this.dataService.init();
-		this.getData();
 	}
 }

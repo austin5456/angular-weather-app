@@ -18,6 +18,7 @@ interface DataObj {
 @Injectable()
 export class DataService {
 	public weeklyData = new Subject;
+	public hourlyData = new Subject;
 
 
 	private handleError(error: any): Promise<any>{
@@ -25,6 +26,7 @@ export class DataService {
 		return Promise.reject(error.message || error);
 	}
 	private started: boolean;
+	private zip: string;
 
 	constructor(private http: Http) { }
 	hourlyUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/hourly/q/76148.json";
@@ -35,6 +37,7 @@ export class DataService {
 		if (!this.started){
 			//init all of it here
 			this.emitWeekly();
+			this.emitHourly();
 			console.log("started is false");
 			this.started = true;
 		}
@@ -72,23 +75,27 @@ export class DataService {
 		console.log("subject call made");
 		this.getWeekly().then( data => this.weeklyData.next(data));
 	}
+
+	emitHourly() {
+		this.getHourly().then( data => this.hourlyData.next(data));
+	}
 	
 	testDataChange() {
 		this.changeZip("54545");
 		this.getWeekly().then(dataObj => {this.weeklyData.next(dataObj)});
+		this.getHourly().then( data => this.hourlyData.next(data));
 	}
 	changeZip(zip:string) {
+		this.zip = zip;
 		this.hourlyUrl = "http://api.wunderground.com/api/238e926ce0161f62/hourly/q/" + zip + ".json";
 		this.conditionsUrl = "http://api.wunderground.com/api/238e926ce0161f62/conditions/q/" + zip + ".json";
 		this.weeklyUrl = "http://api.wunderground.com/api/238e926ce0161f62/forecast10day/q/" + zip + ".json";
 	}
 	getAllData() {
-		this.hourlyData = this.getHourly();
 		this.conditionsData = this.getConditions();
 		this.emitWeekly();
 
 	}
-	hourlyData = this.getHourly();
 	conditionsData = this.getConditions();
 
 }
