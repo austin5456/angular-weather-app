@@ -1,5 +1,7 @@
  <div class="location_holder">
- 	<h2><span id="city">Fort Worth</span>, <span id="state">Texas</span></h2>
+ 	<div *ngIf="location">
+ 	<h2><span id="city">{{location.city}}</span>, <span id="state">{{location.state}}</span></h2>
+ </div>
  </div>
  <div class="zip_container">
  	<p>Not your location? Enter your Zip Code&nbsp;here:</p><input id="zip_input" maxlength="5" placeholder="76148" type="text">
