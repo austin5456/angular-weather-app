@@ -62,7 +62,6 @@ export class WeeklyForecastComponent implements OnInit {
 
 		this.dataService.init();
 		this.dataService.weeklyData.subscribe(data => {
-			console.log("Subject call subscription arrival");
 			this.handleData(data);
 		});
 		}

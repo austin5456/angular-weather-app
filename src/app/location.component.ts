@@ -34,10 +34,12 @@ export class LocationComponent implements OnInit{
 			state: data.current_observation.display_location.state_name
 		}
 		return location;
-
 	}
 
 	ngOnInit(): void {
-		
+		this.dataService.conditionsData.subscribe(data => {
+			this.handleData(data);
+		})
+
 	}
 }
