@@ -62,11 +62,11 @@ header h1 {
     border: 1px solid rgba(0, 0, 0, 0.5);
     box-shadow: 0 0 60px 20px rgba(222, 222, 222, 0.45);
 }
-.night_sky {
-    background-image: linear-gradient( rgba(10, 87, 165, 0.7) 0, rgb(9, 45, 108) 10%, rgb(16, 101, 156) 95%);
-}
 .day_sky {
     background-image: linear-gradient( rgba(10, 87, 165, 0.7) 0, rgb(62, 142, 240) 10%, rgb(138, 205, 255) 95%);
+}
+.night_sky {
+    background-image: linear-gradient( rgba(10, 87, 165, 0.7) 0, rgb(9, 45, 108) 10%, rgb(16, 101, 156) 95%);
 }
 
 /*#region bot background*/

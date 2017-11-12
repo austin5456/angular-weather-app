@@ -1,7 +1,7 @@
 
-<div class="global_wrap day_sky">
+<div class="global_wrap day_sky" [class.night_sky]="isNight">
   <div class="sun_container">
-    <div class="sun" id="sun_moon"></div>
+    <div class="sun" [class.moon]="isNight" ></div>
   </div>
   <div class="main">
     <header>
