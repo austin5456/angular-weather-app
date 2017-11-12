@@ -9,7 +9,7 @@
     <div class="hourly_data_holder">
       <div *ngFor="let unit of displayedData" 
       class="hourly_unit">
-      <div class="icon_box">
+      <div class="icon_box" style.top="{{unit.iconPos}}">
         <div class="weather_icon_small"
         style.background-position="{{unit.icon}}">
         </div>
