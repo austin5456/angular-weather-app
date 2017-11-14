@@ -53,7 +53,5 @@ export class HourlyForecastComponent implements OnInit {
 
 	ngOnInit(){
 		this.dataService.hourlyData.subscribe(data => this.handleData(data));
-		console.log("hourly started")
-		this.dataService.init();
 	}
 }

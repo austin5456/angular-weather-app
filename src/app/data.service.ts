@@ -27,26 +27,12 @@ export class DataService {
 		return Promise.reject(error.message || error);
 	}
 	private started: boolean;
-	private zip: string;
+	private zip: string = "76148";
 
 	constructor(private http: Http) { }
-	hourlyUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/hourly/q/76148.json";
-	conditionsUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/conditions/q/76148.json";
-	weeklyUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/forecast10day/q/76148.json";
-
-	init() {
-		if (!this.started){
-			//init all of it here
-			this.emitCConditions();
-			this.emitWeekly();
-			this.emitHourly();
-			console.log("started is false");
-			this.started = true;
-		}
-		else {
-			console.log("started is true");
-		}
-	}
+	hourlyUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/hourly/q/" + this.zip + ".json";
+	conditionsUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/conditions/q/" + this.zip + ".json";
+	weeklyUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/forecast10day/q/" + this.zip + ".json";
 
 
 	getHourly(): Promise<any> {
@@ -83,12 +69,19 @@ export class DataService {
 	emitCConditions(): void {
 		this.getConditions().then( data => this.conditionsData.next(data));
 	}
-	
-	testDataChange():void {
-		this.changeZip("54545");
+
+	getAllData(newZip?: string){
+		if (newZip) {
+		this.changeZip(newZip);
+	}
 		this.emitWeekly();
 		this.emitHourly();
-		this.emitCConditions();
+		this.emitCConditions();	
+		console.log("gotalldata");
+	}
+	
+	testDataChange():void {
+		this.getAllData("54545");
 	}
 	changeZip(zip:string): void {
 		this.zip = zip;
@@ -96,8 +89,6 @@ export class DataService {
 		this.conditionsUrl = "http://api.wunderground.com/api/238e926ce0161f62/conditions/q/" + zip + ".json";
 		this.weeklyUrl = "http://api.wunderground.com/api/238e926ce0161f62/forecast10day/q/" + zip + ".json";
 	}
-	getAllData(): void {
-	}
-	badInit = console.log("im bad to the bone");
+	public badInit = this.getAllData();
 
 }

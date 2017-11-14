@@ -36,6 +36,21 @@ export class LocationComponent implements OnInit{
 		return location;
 	}
 
+	 checkZip(zip) {
+	 	if (zip.length === 5 && !isNaN(zip)){
+	 		this.dataService.getAllData(zip);
+	 	}
+	 	else {
+	 		alert("Please enter a valid Zip code");
+	 	}
+        // if (e.charCode === 13 || e.type === "click") {
+        //     // if (this.zipInput.value.length === 5 && !isNaN(this.zipInput.value)) {
+        //     //     this.extractValue();
+        //     // }
+        // }
+        console.log(zip);
+    }
+
 	ngOnInit(): void {
 		this.dataService.conditionsData.subscribe(data => {
 			this.handleData(data);

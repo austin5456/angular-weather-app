@@ -4,8 +4,8 @@
  </div>
  </div>
  <div class="zip_container">
- 	<p>Not your location? Enter your Zip Code&nbsp;here:</p><input id="zip_input" maxlength="5" placeholder="76148" type="text">
- 	<div class="my_button" id="zip_button">
+ 	<p>Not your location? Enter your Zip Code&nbsp;here:</p><input #zipInput maxlength="5" placeholder="76148" type="text">
+ 	<div class="my_button" (click)="checkZip(zipInput.value); zipInput.value=''">
  		Find
  	</div>
  </div>

@@ -3,10 +3,6 @@ import { Injectable } from '@angular/core';
 
 import { Directive, Output, EventEmitter, Input, SimpleChange} from '@angular/core';
 
-@Directive({
-    selector: '[onCreate]'
-})
-export class OnCreate {}
 @Injectable()
 export class IconSwapper {
 
@@ -41,7 +37,9 @@ export class IconSwapper {
             fog: "25% 40%",
             nt_fog: "25% -20%",
             snow: "75% 20%",
-            nt_snow: "75% 20%"
+            nt_snow: "75% 20%",
+            chancesnow: "75% 0",
+            nt_chancesnow: "75% 0"
         };
 
         switch (feed) {
@@ -85,6 +83,10 @@ export class IconSwapper {
             return icons.snow;
             case "http://icons.wxug.com/i/c/k/nt_snow.gif":
             return icons.nt_snow;
+            case "http://icons.wxug.com/i/c/k/chancesnow.gif":
+            return icons.chancesnow;
+            case "http://icons.wxug.com/i/c/k/nt_chancesnow.gif":
+            return icons.nt_chancesnow;
             default:
             return "CRAP! something's wrong with the feed";
 
