@@ -14,6 +14,7 @@ interface Location {
 })
 export class LocationComponent implements OnInit{
 	private location: Location;
+	private placeHolder = this.dataService.zip;
 
 	constructor(
 		@Inject(DataService) public dataService
@@ -35,20 +36,24 @@ export class LocationComponent implements OnInit{
 		}
 		return location;
 	}
+	setPlaceholder(){
+		this.placeHolder = this.dataService.zip;
+	}
+	rmPlaceholder(){
+		this.placeHolder = "";
+	}
+	test(e){
+		console.log(e)
+	}
 
 	 checkZip(zip) {
 	 	if (zip.length === 5 && !isNaN(zip)){
+	 		this.placeHolder = zip;
 	 		this.dataService.getAllData(zip);
 	 	}
 	 	else {
 	 		alert("Please enter a valid Zip code");
 	 	}
-        // if (e.charCode === 13 || e.type === "click") {
-        //     // if (this.zipInput.value.length === 5 && !isNaN(this.zipInput.value)) {
-        //     //     this.extractValue();
-        //     // }
-        // }
-        console.log(zip);
     }
 
 	ngOnInit(): void {

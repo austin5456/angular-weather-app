@@ -4,7 +4,15 @@
  </div>
  </div>
  <div class="zip_container">
- 	<p>Not your location? Enter your Zip Code&nbsp;here:</p><input #zipInput maxlength="5" placeholder="76148" type="text">
+ 	<p>Not your location? Enter your Zip Code&nbsp;here:</p>
+ 	<input 
+ 	#zipInput 
+ 	maxlength="5" 
+ 	placeholder="{{placeHolder}}" 
+ 	type="text"
+ 	(blur)="setPlaceholder()"
+ 	(focus)="rmPlaceholder()"
+ 	(keyup.enter)="checkZip(zipInput.value); zipInput.value=''">
  	<div class="my_button" (click)="checkZip(zipInput.value); zipInput.value=''">
  		Find
  	</div>

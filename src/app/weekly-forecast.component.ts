@@ -54,9 +54,6 @@ export class WeeklyForecastComponent implements OnInit {
 		}
 		return weekdayHolder;
 	}
-	testDataChange(){
-		this.dataService.testDataChange();
-	}
 	ngOnInit(){
 		this.dataService.weeklyData.subscribe(data => {
 			this.handleData(data);
