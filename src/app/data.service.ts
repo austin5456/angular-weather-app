@@ -30,9 +30,9 @@ export class DataService {
 	private zip: string = "76148";
 
 	constructor(private http: Http) { }
-	hourlyUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/hourly/q/" + this.zip + ".json";
-	conditionsUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/conditions/q/" + this.zip + ".json";
-	weeklyUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/forecast10day/q/" + this.zip + ".json";
+	public hourlyUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/hourly/q/" + this.zip + ".json";
+	public conditionsUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/conditions/q/" + this.zip + ".json";
+	public weeklyUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/forecast10day/q/" + this.zip + ".json";
 
 
 	getHourly(): Promise<any> {
@@ -76,12 +76,7 @@ export class DataService {
 	}
 		this.emitWeekly();
 		this.emitHourly();
-		this.emitCConditions();	
-		console.log("gotalldata");
-	}
-	
-	testDataChange():void {
-		this.getAllData("54545");
+		this.emitCConditions();
 	}
 	changeZip(zip:string): void {
 		this.zip = zip;
@@ -89,6 +84,6 @@ export class DataService {
 		this.conditionsUrl = "http://api.wunderground.com/api/238e926ce0161f62/conditions/q/" + zip + ".json";
 		this.weeklyUrl = "http://api.wunderground.com/api/238e926ce0161f62/forecast10day/q/" + zip + ".json";
 	}
-	public badInit = this.getAllData();
+	private badInit = this.getAllData();
 
 }

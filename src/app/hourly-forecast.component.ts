@@ -25,7 +25,7 @@ export class HourlyForecastComponent implements OnInit {
 		@Inject(DataService) public dataService
 		){}
 
-	handleData(data) {
+	handleData(data): void {
 		this.hObj = data;
 		let dataHolder:hourlyUnit[] = this.trimData(data);
 		this.render(dataHolder);
@@ -46,12 +46,12 @@ export class HourlyForecastComponent implements OnInit {
 
 		return returnedData;
 	}
-	render(data:hourlyUnit[]){
+	render(data:hourlyUnit[]): void{
 		this.displayedData = data;
 
 	}
 
-	ngOnInit(){
+	ngOnInit(): void{
 		this.dataService.hourlyData.subscribe(data => this.handleData(data));
 	}
 }

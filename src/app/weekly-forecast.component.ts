@@ -27,17 +27,17 @@ export class WeeklyForecastComponent implements OnInit {
 	private weeklyForecast: forecastUnit[];
 
 
-	handleData(data){
+	handleData(data): void{
 		this.fObj = data;
 		let dataHolder: forecastUnit[] = this.trimData(data);
 		this.render(dataHolder);
 
 	}
-	render(trimmedData){
+	render(trimmedData): void{
 		this.weeklyForecast = trimmedData;
 	}
 
-	trimData(data){
+	trimData(data): forecastUnit[] {
 		let weekdayHolder: forecastUnit[] = [];
 
 		for (let i = 0; i < 7; i++){
@@ -54,7 +54,7 @@ export class WeeklyForecastComponent implements OnInit {
 		}
 		return weekdayHolder;
 	}
-	ngOnInit(){
+	ngOnInit(): void{
 		this.dataService.weeklyData.subscribe(data => {
 			this.handleData(data);
 		});

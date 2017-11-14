@@ -1,11 +1,2 @@
 /* You can add global styles to this file, and also import other style files */
 @import "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css";
-
-.wrapper_style {
-    /*controles the wrapper of each forecast module, use !important for testing*/
-    /*background-image: linear-gradient(rgb(10, 87, 165) 1%, rgb(31, 131, 249) 100%) !important; */
-}
-
-/*.weather_icon {
-    background: url(./assets/weather_icons_sprite.png);
-} */
