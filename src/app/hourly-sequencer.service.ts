@@ -7,12 +7,17 @@ export class HourlySequencer {
 	
 	sequence (data): string[] {
 		this.positionArray = ["30px", "45px", "45px", "30px", "15px", "0", "0", "15px", "30px", "45px", "45px", "30px", "15px", "0", "0", "15px", "30px"];
-		var dayOrNight;
+		let subStr = "nt";
 		let positionString = "";
+		let dayNightSequence = "";
 		for (var i = 0; i < 4; i++) {
 			// if in day hours
-			dayOrNight = (Number(data.hourly_forecast[(i * 3)].FCTTIME.hour >= 8 && Number(data.hourly_forecast[(i * 3)].FCTTIME.hour) <= 19) ? "D" : "N");
-			positionString += dayOrNight;
+			if (data.hourly_forecast[(i * 3)].icon_url.toString().indexOf(subStr) === -1) {
+				positionString += "D";
+			}
+			else {
+				positionString += "N";
+			}
 		}
 
 		this.arrayLocation = {
