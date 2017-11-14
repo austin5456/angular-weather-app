@@ -43,11 +43,11 @@ export class LocationComponent implements OnInit{
 		this.placeHolder = "";
 	}
 	test(e){
-		console.log(e)
+		console.log(e);
 	}
 
 	 checkZip(zip) {
-	 	if (zip.length === 5 && !isNaN(zip)){
+	 	if (zip.length === 5 && !isNaN(zip) && zip !== this.placeHolder){
 	 		this.placeHolder = zip;
 	 		this.dataService.getAllData(zip);
 	 	}
