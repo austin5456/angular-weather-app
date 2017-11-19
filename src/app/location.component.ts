@@ -14,7 +14,7 @@ interface Location {
 })
 export class LocationComponent implements OnInit{
 	private location: Location;
-	private placeHolder = this.dataService.zip;
+	private placeHolder: string = this.dataService.zip;
 
 	constructor(
 		@Inject(DataService) public dataService
@@ -24,7 +24,7 @@ export class LocationComponent implements OnInit{
 		this.location = trimmedData;
 	}
 	handleData(data): void {
-		let locationHolder = this.trimData(data);
+		let locationHolder: Location = this.trimData(data);
 		this.render(locationHolder);
 	}
 

@@ -60,14 +60,31 @@ export class DataService {
 	}
 
 	emitWeekly(): void {
-		this.getWeekly().then( data => this.weeklyData.next(data));
+		this.getWeekly().then( data => {
+			if (data.response.error){
+				console.log(data.response.error.description);
+			}
+			else {this.weeklyData.next(data)}
+		});
 	}
 
 	emitHourly(): void {
-		this.getHourly().then( data => this.hourlyData.next(data));
+		this.getHourly().then( data => {
+			if (data.response.error){
+				console.log(data.response.error.description);
+			}
+			else {this.hourlyData.next(data)}
+		});
 	}
 	emitCConditions(): void {
-		this.getConditions().then( data => this.conditionsData.next(data));
+		this.getConditions().then( data => {
+			if (data.response.error){
+				console.log(data.response.error.description);
+			}
+			else {
+			this.conditionsData.next(data)
+		}
+		});
 	}
 
 	getAllData(newZip?: string){

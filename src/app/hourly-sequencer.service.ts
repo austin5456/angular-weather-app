@@ -3,7 +3,6 @@ import { Injectable } from "@angular/core";
 
 @Injectable()
 export class HourlySequencer {
-	public positionArray: string[];
 	private iterationCount: number = 9;
 	private sequenceString: string = "";
 	private sequenceValues: string[] = [];
@@ -11,6 +10,7 @@ export class HourlySequencer {
 	//old
 	public arrayLocation: number;
 	public trimmedArray: string[];
+	public positionArray: string[];
 
 	constructor(private parableMaker: ParableMaker){}
 	
