@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from "@angular/core";
 import { IconSwapper } from "./icon-swapper.service";
 import { DataService } from "./data.service";
 import { HourlySequencer } from "./hourly-sequencer.service";
+import { ParableMaker } from "./parable-maker.service";
 
 
 interface hourlyUnit {
@@ -13,7 +14,7 @@ interface hourlyUnit {
 	selector: "hourly-forecast",
 	styleUrls: ["./hourly-forecast.component.css"],
 	templateUrl: "./hourly-forecast.component.html",
-	providers: [IconSwapper, HourlySequencer]
+	providers: [IconSwapper, HourlySequencer, ParableMaker]
 })
 export class HourlyForecastComponent implements OnInit {
 	hObj;
@@ -32,7 +33,7 @@ export class HourlyForecastComponent implements OnInit {
 	}
 
 	trimData(data): hourlyUnit[] {
-		this.positionArray = this.hourlySequencer.sequence(data);
+		this.positionArray = this.hourlySequencer.sequencer(data);
 		let returnedData: hourlyUnit[] = [];
 
 		for (let i = 0; i < 9; i++){

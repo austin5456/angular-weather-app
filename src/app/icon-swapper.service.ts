@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 
-
-import { Directive, Output, EventEmitter, Input, SimpleChange} from '@angular/core';
-
 @Injectable()
 export class IconSwapper {
 
