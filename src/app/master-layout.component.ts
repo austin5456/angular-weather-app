@@ -15,7 +15,14 @@ export class MasterLayoutComponent implements OnInit{
 	private isNight: boolean;
 
 	setDayVsNight(data) {
-		let dayOrNight = (Number(data.hourly_forecast[0].FCTTIME.hour >= 8 && Number(data.hourly_forecast[0].FCTTIME.hour) <= 19) ? "D" : "N");
+		let dayOrNight;
+		let subStr = "nt";
+		if (data.hourly_forecast[0].icon_url.toString().indexOf(subStr) === -1) {
+			dayOrNight = "D";
+		}
+		else {
+			dayOrNight = "N"
+		}
 		if (dayOrNight === "N") {
 			this.isNight = true;
 		}

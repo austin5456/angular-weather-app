@@ -16,7 +16,7 @@ export class IconSwapper {
 
         const icons = {
             day_partlycloudy: "-28% 39%",
-            nt_partlycloudy: "-3% -20%",
+            nt_partlycloudy: "-3% -21%",
             day_mostlycloudy: "73% 40%",
             nt_mostlycloudy: "72% -20%",
             day_clear: "0 40%",
