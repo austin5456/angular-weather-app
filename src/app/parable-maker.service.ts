@@ -101,7 +101,6 @@ export class ParableMaker {
 
 		for ( let i = 0; i < this.itemCount; i++){
 
-			console.log(i);
 			if (firstStep){
 				this.output.push(this.baseline);
 				firstStep = false;
@@ -149,13 +148,11 @@ export class ParableMaker {
 		}
 
 		if (this.flattenedParable){
-			console.log("ran flat par exceptions")
 
 			if (itemCount === 3 && end && prevItemCount < 5){
 				this.baseSteps += 1;
 			}
 			if (itemCount === 3 && start && nextItemCount < 5){
-				console.log("true for 3 start les 5");
 				this.firstStep = false;
 			}
 			if (this.itemCount === 2 && start) {
@@ -169,11 +166,9 @@ export class ParableMaker {
 		else {
 
 			if (end && this.itemCount === 2 ){
-				console.log("end");
 				this.steps = 1;
 			}
 			if (start && this.itemCount === 2){
-				console.log("ran");
 				this.steps = 1;
 				this.firstStep = false;
 				this.even = false;		
