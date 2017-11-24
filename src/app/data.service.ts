@@ -8,32 +8,26 @@ import { Subject }           from 'rxjs/Subject';
 
 // Observable operators
 import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
-
-interface DataObj {
-	data: object;
-};
 
 @Injectable()
 export class DataService {
+	constructor(private http: Http) { }
+
+	public zip: string = "76148";
+
 	public weeklyData = new Subject;
 	public hourlyData = new Subject;
 	public conditionsData = new Subject;
+
+	public hourlyUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/hourly/q/" + this.zip + ".json";
+	public conditionsUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/conditions/q/" + this.zip + ".json";
+	public weeklyUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/forecast10day/q/" + this.zip + ".json";
 
 
 	private handleError(error: any): Promise<any>{
 		console.error("an error ocurred", error);
 		return Promise.reject(error.message || error);
 	}
-	private started: boolean;
-	private zip: string = "76148";
-
-	constructor(private http: Http) { }
-	public hourlyUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/hourly/q/" + this.zip + ".json";
-	public conditionsUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/conditions/q/" + this.zip + ".json";
-	public weeklyUrl: string = "http://api.wunderground.com/api/238e926ce0161f62/forecast10day/q/" + this.zip + ".json";
-
 
 	getHourly(): Promise<any> {
 		console.log("getHourly ran");
