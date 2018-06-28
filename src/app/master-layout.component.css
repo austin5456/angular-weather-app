@@ -98,7 +98,7 @@ header h1 {
     left: 30%;
     position: relative;
     background-size: 100%;
-   background-image: url(../assets/tree.png);
+   background-image: url(/../assets/tree.png);
 }
 
 .foot {
